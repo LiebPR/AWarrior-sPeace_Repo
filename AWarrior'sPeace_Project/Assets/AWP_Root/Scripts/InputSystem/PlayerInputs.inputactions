@@ -33,15 +33,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Run",
-                    "type": "Value",
-                    "id": "0df31c5c-0542-41dc-85bc-b725626357fc",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Jump",
                     "type": "Button",
                     "id": "eabe8e01-07ad-4785-b358-6252bd8b42ec",
@@ -49,6 +40,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Run",
+                    "type": "Value",
+                    "id": "d301168e-b1c8-4899-9ee1-3388b498f99f",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -87,18 +87,18 @@
                 },
                 {
                     "name": "",
-                    "id": "05bd80d9-bf98-44a4-9f98-ae78fa30dcef",
-                    "path": "",
+                    "id": "2a2c747e-fbdf-46f6-a23f-ebb38274372e",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Run",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "2D Vector",
-                    "id": "776fa8a2-d33e-4c11-bfad-5794f3c8fffc",
+                    "name": "WASD",
+                    "id": "30d17d7c-d7bc-46e9-b857-e3e2757110b6",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -108,8 +108,8 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "down",
-                    "id": "da31861c-bc82-4d4b-9f8b-217c69eee6b1",
+                    "name": "up",
+                    "id": "054daf41-ec3d-4ba8-8919-b00473d43029",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
@@ -119,8 +119,19 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "down",
+                    "id": "a269681f-258d-470f-ac21-47bc4ce91622",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "left",
-                    "id": "947426da-c079-4a99-96b8-9a915775ddde",
+                    "id": "90b5b291-3a46-42ad-9793-45df2b9b7c8a",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
@@ -131,7 +142,7 @@
                 },
                 {
                     "name": "right",
-                    "id": "c504ff4f-0566-406c-9953-ef7783075fd3",
+                    "id": "48ade15b-5b58-49e7-9dd5-07840cfddd5b",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
@@ -139,17 +150,6 @@
                     "action": "Run",
                     "isComposite": false,
                     "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "2a2c747e-fbdf-46f6-a23f-ebb38274372e",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         }
