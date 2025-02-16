@@ -20,9 +20,13 @@ public class PlayerController : MonoBehaviour
     public LayerMask enemies;
     public float damage;
 
-    
+    //Variables ChargedAttack
+    public GameObject chargedAttackPoint;
+    public float chargedAttackRadius;
+    public LayerMask golem;
+    public float chargedAttackDamage;
 
-    
+
     //Variables de estadísticas del player
     public float speed;
     public float jumpForce;
@@ -30,6 +34,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool isGrounded;
     [SerializeField] GameObject groundCheck;
     [SerializeField] LayerMask groundLayer;
+
 
     private void Awake()
     {
@@ -67,6 +72,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             anim.SetTrigger("Attack");
+        }
+
+        //Ataque cargado animación
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            anim.SetTrigger("ChargedAttack");
         }
     }
    
@@ -144,10 +155,24 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //ChargedAttack
+    public void chargedAttack()
+    {
+        Collider2D[] golems = Physics2D.OverlapCircleAll(chargedAttackPoint.transform.position, chargedAttackRadius, golem);
+
+        foreach (Collider2D enemyGameObject in golems)
+        {
+            Debug.Log("Hit golem");
+            enemyGameObject.GetComponent<EnemyHealth>().health -= damage;
+        }
+    }
+
+
     //Ver el círculo attack point
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(attackPoint.transform.position, radius);
+        Gizmos.DrawWireSphere(chargedAttackPoint.transform.position, chargedAttackRadius);
     }
 
     
