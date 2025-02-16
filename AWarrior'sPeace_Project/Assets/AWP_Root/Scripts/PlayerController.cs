@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private PlayerDash _playerDash;
     public float HorizontalInput => horizontalInput;
     public float VerticalInput => verticalInput;
+   
     //Variables attack
     public GameObject attackPoint;
     public float radius;
@@ -32,8 +33,11 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     private bool isFacingRight = true;
     [SerializeField] bool isGrounded;
+    public bool IsGrounded => isGrounded;
     [SerializeField] GameObject groundCheck;
     [SerializeField] LayerMask groundLayer;
+
+  
 
 
     private void Awake()
@@ -55,6 +59,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         
         isGrounded = Physics2D.OverlapCircle(groundCheck.transform.position, 0.1f, groundLayer);
        
@@ -79,6 +84,7 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetTrigger("ChargedAttack");
         }
+
     }
    
     void Movement()

@@ -9,11 +9,11 @@ public class PlayerDash : MonoBehaviour
     private float _baseGravity;
     private Animator anim;
     private float VerticalInput;
+    
 
     [Header("Dash")]
     [SerializeField] private float _dashingTime = 0.2f;
     [SerializeField] private float _dashForce = 20f;
-    [SerializeField] private float _timeCanDash = 1f;
     private bool _isDashing;
     private bool _canDash = true;
     public bool IsDashing => _isDashing;
@@ -32,14 +32,19 @@ public class PlayerDash : MonoBehaviour
  
     void Update()
     {
-        Debug.Log("Vertical Input: " + _player.VerticalInput);
-        if (Input.GetKeyDown(KeyCode.Q))
+       
+        
+        if (_canDash &&  Input.GetKeyDown(KeyCode.Q) && !_isDashing)
         {
             StartCoroutine(Dash());
         }
+        if(_player.IsGrounded && !_canDash)
+        {
+            _canDash = true; 
+        }
     }
 
-    private IEnumerator Dash()
+   private IEnumerator Dash()
     {
 
         if ((_player.HorizontalInput != 0 || _player.VerticalInput != 0) && _canDash)
@@ -48,13 +53,14 @@ public class PlayerDash : MonoBehaviour
 
             _isDashing = true;
             _canDash = false;
-            _rb.gravityScale = 0f;
-            _rb.velocity = new Vector2(_player.HorizontalInput * _dashForce, _player.VerticalInput * _dashForce);
+
+            Vector2 dashDirection = new Vector2(_player.HorizontalInput, _player.VerticalInput).normalized;
+            _rb.velocity = new Vector2(dashDirection.x * _dashForce, dashDirection.y * _dashForce);
             yield return new WaitForSeconds(_dashingTime);
             _isDashing = false;
             _rb.gravityScale = _baseGravity;
-            yield return new WaitForSeconds(_timeCanDash);
-            _canDash = true;
+           
+            
         }
 
         
