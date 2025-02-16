@@ -10,13 +10,19 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D playerAWP;
     private Animator anim;
     private float horizontalInput;
-
+    private float verticalInput;
+    private PlayerDash _playerDash;
+    public float HorizontalInput => horizontalInput;
+    public float VerticalInput => verticalInput;
     //Variables attack
     public GameObject attackPoint;
     public float radius;
     public LayerMask enemies;
     public float damage;
 
+    
+
+    
     //Variables de estadísticas del player
     public float speed;
     public float jumpForce;
@@ -25,20 +31,38 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject groundCheck;
     [SerializeField] LayerMask groundLayer;
 
+    private void Awake()
+    {
+        playerAWP = GetComponent<Rigidbody2D>();
+        _playerDash = GetComponent<PlayerDash>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        playerAWP = GetComponent<Rigidbody2D>();
+        
         anim = GetComponent<Animator>();
+        
+        
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.transform.position, 0.1f, groundLayer);
-        Movement();
-        Jump();
         
+        isGrounded = Physics2D.OverlapCircle(groundCheck.transform.position, 0.1f, groundLayer);
+       
+        
+        if (!_playerDash.IsDashing)
+        {
+            Jump();
+        }
+        if (!_playerDash.IsDashing)
+        {
+            Movement();
+        }
+
         //Ataque animación
         if (Input.GetMouseButtonDown(0))
         {
@@ -48,8 +72,23 @@ public class PlayerController : MonoBehaviour
    
     void Movement()
     {
+        verticalInput = Input.GetAxis("Vertical");
         horizontalInput = Input.GetAxis("Horizontal");
-        playerAWP.velocity = new Vector2(horizontalInput *  speed, playerAWP.velocity.y);
+        verticalInput = Input.GetAxis("Vertical");
+        horizontalInput = Input.GetAxis("Horizontal");
+
+        float currentYVelocity = playerAWP.velocity.y; // Mantiene la caída natural
+
+        if (_playerDash.IsDashing)
+        {
+            // Permitir movimiento libre en ambos ejes durante el dash
+            playerAWP.velocity = new Vector2(horizontalInput * speed, verticalInput * speed);
+        }
+        else
+        {
+            // Mantener la gravedad cuando no está dashing
+            playerAWP.velocity = new Vector2(horizontalInput * speed, currentYVelocity);
+        }
 
         //Flip: si el valor del imput es igual a 0
         if (horizontalInput > 0)
@@ -110,4 +149,6 @@ public class PlayerController : MonoBehaviour
     {
         Gizmos.DrawWireSphere(attackPoint.transform.position, radius);
     }
+
+    
 }

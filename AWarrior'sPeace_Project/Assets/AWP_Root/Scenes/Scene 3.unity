@@ -183,6 +183,10 @@ PrefabInstance:
       propertyPath: _dashingVelocity
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 5987521090054022414, guid: 0aeaf61024a240a4f9cd2aeffbb75ef5, type: 3}
+      propertyPath: _dashForce
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
