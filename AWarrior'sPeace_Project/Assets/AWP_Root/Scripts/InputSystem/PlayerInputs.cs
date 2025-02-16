@@ -37,7 +37,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Dash"",
+                    ""name"": ""IsDashing"",
                     ""type"": ""Button"",
                     ""id"": ""aa94ec4e-1fc6-4ade-85ba-0a68471bb2cd"",
                     ""expectedControlType"": ""Button"",
@@ -92,7 +92,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Dash"",
+                    ""action"": ""IsDashing"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -181,7 +181,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
-        m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
+        m_Player_IsDashing = m_Player.FindAction("IsDashing", throwIfNotFound: true);
         m_Player_CharguedAttack = m_Player.FindAction("CharguedAttack", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
@@ -247,7 +247,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Attack;
-    private readonly InputAction m_Player_Dash;
+    private readonly InputAction m_Player_IsDashing;
     private readonly InputAction m_Player_CharguedAttack;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Run;
@@ -256,7 +256,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         private @PlayerInputs m_Wrapper;
         public PlayerActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
-        public InputAction @Dash => m_Wrapper.m_Player_Dash;
+        public InputAction @IsDashing => m_Wrapper.m_Player_IsDashing;
         public InputAction @CharguedAttack => m_Wrapper.m_Player_CharguedAttack;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Run => m_Wrapper.m_Player_Run;
@@ -272,9 +272,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
-            @Dash.started += instance.OnDash;
-            @Dash.performed += instance.OnDash;
-            @Dash.canceled += instance.OnDash;
+            @IsDashing.started += instance.OnIsDashing;
+            @IsDashing.performed += instance.OnIsDashing;
+            @IsDashing.canceled += instance.OnIsDashing;
             @CharguedAttack.started += instance.OnCharguedAttack;
             @CharguedAttack.performed += instance.OnCharguedAttack;
             @CharguedAttack.canceled += instance.OnCharguedAttack;
@@ -291,9 +291,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
-            @Dash.started -= instance.OnDash;
-            @Dash.performed -= instance.OnDash;
-            @Dash.canceled -= instance.OnDash;
+            @IsDashing.started -= instance.OnIsDashing;
+            @IsDashing.performed -= instance.OnIsDashing;
+            @IsDashing.canceled -= instance.OnIsDashing;
             @CharguedAttack.started -= instance.OnCharguedAttack;
             @CharguedAttack.performed -= instance.OnCharguedAttack;
             @CharguedAttack.canceled -= instance.OnCharguedAttack;
@@ -323,7 +323,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnAttack(InputAction.CallbackContext context);
-        void OnDash(InputAction.CallbackContext context);
+        void OnIsDashing(InputAction.CallbackContext context);
         void OnCharguedAttack(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);

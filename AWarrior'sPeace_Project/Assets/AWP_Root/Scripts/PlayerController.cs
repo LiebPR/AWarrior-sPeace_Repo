@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -32,8 +33,10 @@ public class PlayerController : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(groundCheck.transform.position, 0.1f, groundLayer);
         Movement();
         Jump();
-    }
+        
 
+    }
+   
     void Movement()
     {
         horizontalInput = Input.GetAxis("Horizontal");
@@ -69,6 +72,7 @@ public class PlayerController : MonoBehaviour
         {
             playerAWP.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
         }
+        
         
     }
 

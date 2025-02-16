@@ -15,7 +15,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Dash",
+                    "name": "IsDashing",
                     "type": "Button",
                     "id": "aa94ec4e-1fc6-4ade-85ba-0a68471bb2cd",
                     "expectedControlType": "Button",
@@ -70,7 +70,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Dash",
+                    "action": "IsDashing",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
