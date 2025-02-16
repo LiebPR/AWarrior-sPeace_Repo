@@ -11,6 +11,11 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private float horizontalInput;
 
+    //Variables attack
+    public GameObject attackPoint;
+    public float radius;
+    public LayerMask enemies;
+    public float damage;
 
     //Variables de estadísticas del player
     public float speed;
@@ -34,7 +39,11 @@ public class PlayerController : MonoBehaviour
         Movement();
         Jump();
         
-
+        //Ataque animación
+        if (Input.GetMouseButtonDown(0))
+        {
+            anim.SetTrigger("Attack");
+        }
     }
    
     void Movement()
@@ -82,5 +91,23 @@ public class PlayerController : MonoBehaviour
         currentScale.x *= -1;
         transform.localScale = currentScale;
         isFacingRight = !isFacingRight;
+    }
+
+    //Attack
+    public void attack()
+    {
+        Collider2D[] enemy = Physics2D.OverlapCircleAll(attackPoint.transform.position, radius, enemies);
+
+        foreach (Collider2D enemyGameObject in enemy)
+        {
+            Debug.Log("Hit enemy");
+            enemyGameObject.GetComponent<EnemyHealth>().health -= damage;
+        }
+    }
+
+    //Ver el círculo attack point
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(attackPoint.transform.position, radius);
     }
 }

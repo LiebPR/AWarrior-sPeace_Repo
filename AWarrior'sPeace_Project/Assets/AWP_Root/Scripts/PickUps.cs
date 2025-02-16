@@ -13,6 +13,6 @@ public class PickUps : MonoBehaviour
             GameManager.Instance.PointsUp(1);
             gameObject.SetActive(false);
         }
-        AudioManager.Instance.PlaySFX("PeackUp");
+        AudioManager.Instance.PlaySFX("PickUp");
     }
 }
