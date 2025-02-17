@@ -1,0 +1,75 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+
+public class Dialog : MonoBehaviour
+{
+
+    
+    [SerializeField] private GameObject dialogeMark;
+    [SerializeField] private GameObject dialogePanel;
+    [SerializeField] private TMP_Text dialogeText;
+    [SerializeField, TextArea(4,6)] private string[] dialogueLines;
+
+    private float typingTime = 0.05f;
+
+    private bool isPlayerInRange;
+    private bool didDialogeStart;
+    private int lineIndex;
+
+    void Update()
+    {
+        if (isPlayerInRange && Input.GetButtonDown("Fire2"))
+        {
+            if (!didDialogeStart)
+            {
+                StartDialoge();
+            }
+            
+        } 
+    }
+
+    private void StartDialoge()
+    {
+        didDialogeStart = true;
+        dialogePanel.SetActive(true);
+        dialogeMark.SetActive(false);
+        lineIndex = 0;
+        StartCoroutine(ShowLine());
+    }
+
+    private IEnumerator ShowLine()
+    {
+        dialogeText.text = string.Empty;
+
+        foreach (char ch in dialogueLines[lineIndex])
+        {
+            dialogeText.text += ch;
+
+            yield return new WaitForSeconds(typingTime);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            isPlayerInRange = true;
+            dialogeMark.SetActive(true);
+            
+            
+        }
+    }
+        
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            isPlayerInRange = false;
+            dialogeMark.SetActive(false);
+            
+        }
+    }
+}
