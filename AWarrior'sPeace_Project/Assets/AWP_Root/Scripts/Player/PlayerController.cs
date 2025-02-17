@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public float HorizontalInput => horizontalInput;
     public float VerticalInput => verticalInput;
    
+
     //Variables attack
     public GameObject attackPoint;
     public float radius;
@@ -94,6 +95,8 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("Jump", true);
         }
+
+        
 
     }
    

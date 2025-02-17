@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2224782406301404646}
   - component: {fileID: 370684265191458971}
   - component: {fileID: 7285447584613025056}
+  - component: {fileID: 7220643130229430278}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -57,7 +58,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dashingTime: 0.1
   _dashForce: 30
-  _timeCanDash: 1
 --- !u!114 &5977030793964497369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,7 +88,7 @@ MonoBehaviour:
   groundCheck: {fileID: 5317564248751779203}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 136
+    m_Bits: 648
 --- !u!212 &3052906907090534825
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -310,6 +310,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points: 0
   winPoints: 0
+--- !u!114 &7220643130229430278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2349257543323012323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1758ff985d459a14ea0f68c1be4b7b26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPoint: {fileID: 0}
 --- !u!1 &3192806428916059131
 GameObject:
   m_ObjectHideFlags: 0

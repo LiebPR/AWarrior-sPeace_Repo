@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Golem
   - Platform
+  - Trap
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - UI
   - Enemy
   - Golem
-  - 
-  - 
+  - Trap
+  - GroundTrap
   - 
   - 
   - 
