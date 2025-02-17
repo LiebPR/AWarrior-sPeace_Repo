@@ -84,6 +84,16 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetTrigger("ChargedAttack");
         }
+        
+        if(isGrounded && horizontalInput == 0)
+        {
+            anim.SetBool("Run", false);
+            anim.SetBool("Jump", false);
+        }
+        else if (!isGrounded)
+        {
+            anim.SetBool("Jump", true);
+        }
 
     }
    
@@ -108,26 +118,36 @@ public class PlayerController : MonoBehaviour
         }
 
         //Flip: si el valor del imput es igual a 0
-        if (horizontalInput > 0)
+        
+        if (isGrounded)
         {
-            anim.SetBool("Run", true);
-            if (!isFacingRight)
+            if (horizontalInput != 0)
             {
-                Flip();
+                anim.SetBool("Run", true);
+            }
+            else
+            {
+                anim.SetBool("Run", false);
             }
         }
-        if (horizontalInput < 0)
-        {
-            anim.SetBool("Run", true);
-            if (isFacingRight)
-            {
-                Flip();
-            } 
-        }
-        if (horizontalInput == 0)
+        else
         {
             anim.SetBool("Run", false);
+            anim.SetBool("Jump", true);
         }
+
+        if(horizontalInput > 0 && !isFacingRight)
+        {
+            Flip();
+        }
+        if(horizontalInput < 0 && isFacingRight)
+        {
+            Flip();
+        }
+        
+        
+        
+        
     }
 
     void Jump()
@@ -181,5 +201,21 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawWireSphere(chargedAttackPoint.transform.position, chargedAttackRadius);
     }
 
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Platform"))
+        {
+            transform.parent = collision.transform;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Platform"))
+        {
+            transform.parent = null;
+        }
+    }
+
+
 }

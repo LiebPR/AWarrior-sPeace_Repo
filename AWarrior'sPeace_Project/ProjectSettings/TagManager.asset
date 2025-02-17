@@ -8,6 +8,7 @@ TagManager:
   - PickUp
   - Enemy
   - Golem
+  - Platform
   layers:
   - Default
   - TransparentFX
