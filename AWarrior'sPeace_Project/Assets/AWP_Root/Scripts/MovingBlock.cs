@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MovingBlock : MonoBehaviour
 {
+    private Animator anim;
     [SerializeField] float speed = 5; //Velocidad plataforma
     [SerializeField] int startingPoint; //Determinador del punto de inicio de la plataforma
     [SerializeField] Transform[] points; //Array que almacena la posición de los diferentes puntos de alcance
@@ -14,6 +15,10 @@ public class MovingBlock : MonoBehaviour
     {
         //Al inicio del juego la plataforma se teleporta a la posición de igual valor que startingPoint
         transform.position = points[startingPoint].position;
+
+        anim = GetComponent<Animator>();
+        
+
     }
 
     // Update is called once per frame
