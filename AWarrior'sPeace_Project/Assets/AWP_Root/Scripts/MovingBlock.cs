@@ -25,6 +25,8 @@ public class MovingBlock : MonoBehaviour
     void Update()
     {
         MovePlatform();
+
+        
     }
 
     void MovePlatform()
@@ -38,4 +40,6 @@ public class MovingBlock : MonoBehaviour
         //Mueve la plataforma a la posición del punto en el array que coincida con el valor del indice
         transform.position = Vector2.MoveTowards(transform.position, points[i].position, speed * Time.deltaTime);
     }
+
+    
 }
