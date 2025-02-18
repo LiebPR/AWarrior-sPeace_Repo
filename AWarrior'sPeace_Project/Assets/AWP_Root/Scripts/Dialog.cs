@@ -5,8 +5,7 @@ using TMPro;
 
 public class Dialog : MonoBehaviour
 {
-
-    //En referencia al Dialogo
+    // En referencia al Dialogo
     private bool didDialogueStart;
     private int lineIndex;
     private bool isTyping;
@@ -15,11 +14,8 @@ public class Dialog : MonoBehaviour
     [SerializeField] private GameObject dialogueMark;
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TMP_Text dialogueText;
-    [SerializeField, TextArea(4,6)] private string[] dialogueLines;
+    [SerializeField, TextArea(4, 6)] private string[] dialogueLines;
 
-   
-
-    
     void Update()
     {
         if (isPlayerInRange && Input.GetButtonDown("Fire2"))
@@ -28,7 +24,7 @@ public class Dialog : MonoBehaviour
             {
                 StartDialogue();
             }
-            else if(!isTyping && dialogueText.text.Equals (dialogueLines[lineIndex]))
+            else if (!isTyping && dialogueText.text.Equals(dialogueLines[lineIndex]))
             {
                 NextDialogueLine();
             }
@@ -38,7 +34,7 @@ public class Dialog : MonoBehaviour
                 dialogueText.text = dialogueLines[lineIndex];
                 isTyping = false;
             }
-        } 
+        }
     }
 
     private void StartDialogue()
@@ -47,10 +43,8 @@ public class Dialog : MonoBehaviour
         dialoguePanel.SetActive(true);
         dialogueMark.SetActive(false);
         lineIndex = 0;
-        
 
-        
-
+        // Inicia el diálogo
         StartCoroutine(ShowLine());
     }
 
@@ -66,7 +60,6 @@ public class Dialog : MonoBehaviour
             didDialogueStart = false;
             dialoguePanel.SetActive(false);
             dialogueMark.SetActive(true);
-            
         }
     }
 
@@ -87,30 +80,41 @@ public class Dialog : MonoBehaviour
         didDialogueStart = false;
         dialoguePanel.SetActive(false);
         dialogueMark.SetActive(true);
-
-
-        
     }
 
+    // Cuando el jugador entra en el área de trigger
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             isPlayerInRange = true;
-            dialogueMark.SetActive(true);
-            
-            
+
+            // Solo activa el marcador si no está en curso el diálogo
+            if (!didDialogueStart)
+            {
+                dialogueMark.SetActive(true);
+            }
         }
     }
-        
 
+    // Cuando el jugador sale del área de trigger
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             isPlayerInRange = false;
-            dialogueMark.SetActive(false);
-            EndDialogue();
+
+            // Desactiva el marcador solo si no hay diálogo en curso
+            if (!didDialogueStart)
+            {
+                dialogueMark.SetActive(false);
+            }
+
+            // Si el diálogo está en curso y el jugador sale del trigger, se termina el diálogo
+            if (didDialogueStart)
+            {
+                EndDialogue();
+            }
         }
     }
 }
