@@ -221,4 +221,9 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    void playerFreeze()
+    {
+        gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+    }
+
 }

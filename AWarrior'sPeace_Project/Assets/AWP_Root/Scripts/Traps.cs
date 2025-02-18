@@ -25,6 +25,7 @@ public class Traps : MonoBehaviour
         if (collision.CompareTag("Trap"))
         {
             anim.SetTrigger("Death");
+
         }
     }
 
