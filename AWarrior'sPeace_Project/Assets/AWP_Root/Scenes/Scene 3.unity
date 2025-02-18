@@ -682,7 +682,7 @@ GameObject:
   - component: {fileID: 1060570740}
   - component: {fileID: 1060570739}
   m_Layer: 0
-  m_Name: DialogeMark
+  m_Name: DialogueMark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19997,9 +19997,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e6d6f93c8c3b4c44a80ffbed41ab4cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogeMark: {fileID: 1060570738}
-  dialogePanel: {fileID: 1662105236}
-  dialogeText: {fileID: 744083113}
+  dialogueMark: {fileID: 1060570738}
+  dialoguePanel: {fileID: 1662105236}
+  dialogueText: {fileID: 744083113}
   dialogueLines:
   - "???\nTe acuerdas de m\xED?"
   - '???
