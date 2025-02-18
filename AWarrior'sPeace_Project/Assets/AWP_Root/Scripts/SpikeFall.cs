@@ -9,7 +9,7 @@ public class SpikeFall : MonoBehaviour
     [SerializeField] Transform[] points;
     [SerializeField] private Collider2D triggerCollider;
 
-    private int targetIndex = 0;
+    private int targetIndex = 1;
     private bool spikeFall = false;
 
     // Start is called before the first frame update
@@ -17,13 +17,13 @@ public class SpikeFall : MonoBehaviour
     {
         
         transform.position = points[0].position;
-        targetIndex = 1;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (spikeFall) 
+        if (spikeFall && points.Length > 1) 
         {
             MoveSpike();
         }
@@ -44,8 +44,17 @@ public class SpikeFall : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             spikeFall = true;
+            triggerCollider.enabled = false;
             
 
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            Debug.Log("La estalactita te ha golpeado");
         }
     }
 
