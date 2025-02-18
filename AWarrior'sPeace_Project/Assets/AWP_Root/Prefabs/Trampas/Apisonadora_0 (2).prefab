@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4947242652998323525}
   - component: {fileID: 524272001074845115}
   m_Layer: 8
-  m_Name: Apisonadora_0
+  m_Name: Apisonadora_0 (2)
   m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1612687588450739913}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.65, y: 20.37, z: 0}
-  m_LocalScale: {x: 2.87, y: 2.87, z: 2.87}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5180056366611075174}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8230251717154019318
 SpriteRenderer:
