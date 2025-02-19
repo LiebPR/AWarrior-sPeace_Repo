@@ -18575,6 +18575,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnPoint: {fileID: 0}
+  playerHealth: 1
+  trapDamage: 1
 --- !u!1 &1920811214
 GameObject:
   m_ObjectHideFlags: 0
@@ -18842,11 +18844,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5327821811059756948, guid: 20aac79d7fa079849abfb529cb344ffd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.755268
+      value: -5.7963324
       objectReference: {fileID: 0}
     - target: {fileID: 5327821811059756948, guid: 20aac79d7fa079849abfb529cb344ffd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.4916111
+      value: -1.4859043
       objectReference: {fileID: 0}
     - target: {fileID: 5327821811059756948, guid: 20aac79d7fa079849abfb529cb344ffd, type: 3}
       propertyPath: m_LocalPosition.z

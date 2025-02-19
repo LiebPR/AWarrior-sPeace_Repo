@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5905045157177872184}
   - component: {fileID: 4510136675625010292}
   - component: {fileID: 8108022980203108840}
+  - component: {fileID: 756254457077352401}
   m_Layer: 8
   m_Name: Pinchos_0 (20)
   m_TagString: Trap
@@ -31,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4510136675625010292
 SpriteRenderer:
@@ -130,3 +131,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.48542547}
   m_EdgeRadius: 0
+--- !u!114 &756254457077352401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3262734955234968202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed0bf7ff70ba73a4d89d0186bcf8ff84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

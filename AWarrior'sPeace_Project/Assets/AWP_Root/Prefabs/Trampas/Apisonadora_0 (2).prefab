@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8230251717154019318}
   - component: {fileID: 4947242652998323525}
   - component: {fileID: 524272001074845115}
+  - component: {fileID: 7253693952815332152}
   m_Layer: 8
   m_Name: Apisonadora_0 (2)
   m_TagString: Trap
@@ -33,7 +34,7 @@ Transform:
   m_Children:
   - {fileID: 5180056366611075174}
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8230251717154019318
 SpriteRenderer:
@@ -137,7 +138,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.00000011920929, y: 0.4129279}
@@ -153,6 +154,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7837044, y: 0.17414421}
   m_EdgeRadius: 0
+--- !u!114 &7253693952815332152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612687588450739913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed0bf7ff70ba73a4d89d0186bcf8ff84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3931592060974156289
 GameObject:
   m_ObjectHideFlags: 0
