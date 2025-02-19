@@ -18907,11 +18907,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 249758539667779907, guid: 5ef808ec8ccfd6d4797bcf0f6f97488d, type: 3}
       propertyPath: dialogueLines.Array.data[0]
-      value: -Odin-
+      value: '_Odin_
+
+
+        Recupera tus ultimos 4 recuerdos...'
       objectReference: {fileID: 0}
     - target: {fileID: 249758539667779907, guid: 5ef808ec8ccfd6d4797bcf0f6f97488d, type: 3}
       propertyPath: dialogueLines.Array.data[1]
-      value: Recupera tus ultimos 4 recuerdos...
+      value: '_Odin_
+
+
+        Y acepta tu destino.'
       objectReference: {fileID: 0}
     - target: {fileID: 5451823865965372462, guid: 5ef808ec8ccfd6d4797bcf0f6f97488d, type: 3}
       propertyPath: m_Name
